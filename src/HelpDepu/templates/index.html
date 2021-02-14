@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SocialHack</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
+    <link rel="stylesheet" href="{% static 'css/Article-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Button-Change-Text-on-Hover.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-with-Button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Pretty-Registration-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body style="background: url({% static 'img/MUESTRA_manual_breve_web_page-0001.jpg' %}) top / cover no-repeat;">
+<ul class="nav nav-tabs text-right" style="border-color: rgba(33,37,41,0);">
+        <li class="nav-item"></li>
+        <li class="nav-item"><a class="nav-link" style="color: rgb(154,33,66);" href="https://www.depo.gal/"><strong>Web Diputación de Pontevedra</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(154,33,66);"><strong>Contacto</strong></a></li>
+    </ul>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src={% static 'img/unknown.png' %} width="200" height="100" align="center">
+                    <h1 style="color: rgb(154,33,66);"><strong>Red de Ayuda de la Diputación de Pontevedra</strong></h1>
+                    <p style="color: rgb(116,120,123);"><strong>Somos una red que sirve de puente entre asociaciones y de ayuda a las personas que mas lo necesitan</strong></p>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6" style="padding: 29px;padding-top: 50px;width: 700px;">
+                        <div class="card" style="width: 600px;">
+                            <div class="card-header" style="width: 600px;color: rgb(153,34,66);background: rgb(255,255,255);">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Educacion</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="salud-tab" data-toggle="tab" href="#salud" role="tab" aria-controls="salud" aria-selected="false">Salud</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="comida-tab" data-toggle="tab" href="#comida" role="tab" aria-controls="comida" aria-selected="false">Comida</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tercera-tab" data-toggle="tab" href="#tercera" role="tab" aria-controls="tercera" aria-selected="false">Tercera Edad</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="mambiente-tab" data-toggle="tab" href="#mambiente" role="tab" aria-controls="mambiente" aria-selected="false">Medio Ambiente</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="trabajo-tab" data-toggle="tab" href="#trabajo" role="tab" aria-controls="trabajo" aria-selected="false">Trabajo</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="psicology-tab" data-toggle="tab" href="#psicology" role="tab" aria-controls="psicology" aria-selected="false">Psicologia</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="otros-tab" data-toggle="tab" href="#otros" role="tab" aria-controls="otros" aria-selected="false">Otros</a>
+                                    </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            {% for instance in latest_question_list %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="salud" role="tabpanel" aria-labelledby="salud-tab">
+                                            {% for instance in latest_question_list_salud %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="comida" role="tabpanel" aria-labelledby="comida-tab">
+                                            {% for instance in latest_question_list_comida %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="tercera" role="tabpanel" aria-labelledby="tercera-tab">
+                                            {% for instance in latest_question_list_tercera %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="psicology" role="tabpanel" aria-labelledby="psicology-tab">
+                                            {% for instance in latest_question_list_psicology %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="mambiente" role="tabpanel" aria-labelledby="mambiente-tab">
+                                            {% for instance in latest_question_list_mambiente %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="trabajo" role="tabpanel" aria-labelledby="trabajo-tab">
+                                            {% for instance in latest_question_list_trabajo %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="tab-pane fade" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
+                                            {% for instance in latest_question_list_otros %}
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ instance.EntNome }}</h5>
+                                                <p class="card-text">{{ instance.EntDireccion }}</p>
+                                                <p class="card-text">{{ instance.EntConcello }}</p>
+                                                <a href="mailto:{{ instance.EntEmail }}" class="btn btn-primary">Contacta por Email</a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
+                    <div class="col-md-6">
+                        <div class="row register-form">
+                            <div class="col-md-8 offset-md-2">
+                                <form id="formularioInicio" class="custom-form" style="width: 450px;height: 750px;background: rgb(255,255,255);" action="{% url 'results' %}" method="post">
+                                    {% csrf_token %}
+                                    <h1 style="color: rgb(153,34,67);">¿En que podemos ayudarte?</h1>
+                                    <div class="form-row form-group">
+                                        <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field" style="color: rgb(154,33,66);">Dejanos tu email</label></div>
+                                        <div class="col-sm-6 input-column"><input class="form-control" type="email"></div>
+                                    </div>
+                                    <div class="form-row form-group">
+                                        <div class="col-sm-4 label-column"><label class="col-form-label" for="text-input-field" style="color: rgb(155,32,66);">Introduce en este cuadro de texto lo que nos quieres contar</label></div>
+                                        <div class="col-sm-6 input-column"><input id="input-text" name="input-text" class="form-control" type="text-area" style="height: 350px;width: 250px;"></div>
+                                    </div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">He leido y aceptado las condiciones de uso</label></div><input id="btnbuscarhistoria" name="Enviar" class="btn btn-light submit-button" type="submit"></input></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
